@@ -23,7 +23,7 @@ public class Consumer implements Runnable {
                 manager.occupied_sem.acquire();
 
                 Item item = manager.items.remove(0);
-                System.out.printf("\u001B[36m" + "Receiver #%d takes item %d\n" + "\u001B[0m", this.id, item.getId());
+                System.out.printf("\u001B[36m" + "Consumer #%d takes item %d\n" + "\u001B[0m", this.id, item.getId());
 
                 manager.occupied_sem.release();
                 manager.full_sem.release();
@@ -31,6 +31,6 @@ public class Consumer implements Runnable {
                 throw new RuntimeException(e);
             }
         }
-        System.out.println("\u001B[31m" + "Receiver #" + this.id + " finished working" + "\u001B[0m");
+        System.out.println("\u001B[31m" + "Consumer #" + this.id + " finished working" + "\u001B[0m");
     }
 }

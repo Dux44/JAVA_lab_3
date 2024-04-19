@@ -26,7 +26,7 @@ public class Producer implements Runnable {
                 Random random = new Random();
                 Item item = new Item(random.nextInt(0, 100));
                 manager.items.add(item);
-                System.out.printf("\u001B[33m" + "Supplier #%d adds new item %d\n" + "\u001B[0m", this.id, item.getId());
+                System.out.printf("\u001B[33m" + "Producer #%d adds new item %d\n" + "\u001B[0m", this.id, item.getId());
 
                 manager.occupied_sem.release();
                 manager.empty_sem.release();
@@ -34,6 +34,6 @@ public class Producer implements Runnable {
                 throw new RuntimeException(e);
             }
         }
-        System.out.println("\u001B[35m" + "Supplier #" + this.id + " finished working" + "\u001B[0m");
+        System.out.println("\u001B[35m" + "Producer #" + this.id + " finished working" + "\u001B[0m");
     }
 }
